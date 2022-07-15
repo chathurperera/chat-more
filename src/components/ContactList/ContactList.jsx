@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "../ContactList/ContactList.module.scss";
 import userProfile from "../../assets/images/userProfile.jpg";
+import ContactChat from "../ContactChat/ContactChat";
 
 const ContactList = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,6 +34,10 @@ const ContactList = () => {
             className={styles.searchInput}
           />
         </div>
+      </div>
+      <div className={styles.contactListBody}>
+        <h3>Chats</h3>
+        <ContactChat />
       </div>
     </div>
   );
