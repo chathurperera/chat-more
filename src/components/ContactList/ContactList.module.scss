@@ -1,0 +1,51 @@
+.contactList{
+    min-height: 100vh;
+    border-right: 1px solid #ebe9f1;
+    &Header{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid #ebe9f1;
+    }
+    .userImage{
+        padding: 10px ;
+        width: max-content;
+        position: relative !important;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        div{
+            position: absolute;
+            border-radius: 50%;
+            bottom: 15px;
+            right: 22px;
+            z-index: 9999;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
+    }
+    .search{
+        border: 1px solid #b9b9c3;
+        border-radius: 20px;
+        padding: 10px;
+        margin-right: 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        &:focus-within{
+            border: 1px solid #7367f0;
+        }
+        input{
+            padding: 0 10px;
+            border: none;
+            &:focus{
+                
+                outline: none;
+            }
+            
+        }
+    }
+}
