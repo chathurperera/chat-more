@@ -1,81 +1,126 @@
-.contactList{
-    min-height: 100vh;
-    border-right: 1px solid #ebe9f1;
-    &Header{
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        border-bottom: 1px solid #ebe9f1;
+.contactList {
+  min-height: 100vh;
+  border-right: 1px solid #ebe9f1;
+  &Header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #ebe9f1;
+  }
+  .userImage {
+    padding: 10px;
+    width: max-content;
+    position: relative !important;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
     }
-    .userImage{
-        padding: 10px ;
-        width: max-content;
-        position: relative !important;
-        img{
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-        div{
-            position: absolute;
-            border-radius: 50%;
-            bottom: 15px;
-            right: 15px;
-            z-index: 9999;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-        }
+    div {
+      position: absolute;
+      border-radius: 50%;
+      bottom: 15px;
+      right: 15px;
+      z-index: 9999;
+      width: 10px;
+      height: 10px;
+      background-color: red;
     }
-    .search{
-        border: 1px solid #b9b9c3;
-        border-radius: 20px;
-        padding: 10px;
-        margin-right: 10px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        &:focus-within{
-            border: 1px solid #7367f0;
-        }
-        input{
-            padding: 0 10px;
-            border: none;
-            &:focus{
-                
-                outline: none;
-            }
-            
-        }
+  }
+  .search {
+    border: 1px solid #b9b9c3;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &:focus-within {
+      border: 1px solid #7367f0;
+    }
+    input {
+      padding: 0 10px;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &Body {
+    h3 {
+      color: #7367f0;
+      font-size: 18px;
+      margin: 28px 18px 7px;
+    }
+  }
+  .chatCard {
+    padding: 11px 18px;
+    display: flex;
+    gap: 20px;
+    transition: all ease .3;
+    margin: 20px 20px;
+    border-radius: 5px;
+    align-items: center;
+    position: relative;
+    
+    &:hover {
+        background-color: #f8f8f8;
+        cursor: pointer;
     }
 
-    &Body{
-        h3{
-            color:#7367f0;
-            font-size: 18px;
-            margin: 28px 18px 7px;
-        }
+    // justify-content: space-between;
+  }
+  .chatCardImage {
+    width: max-content;
+    position: relative;
+    img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
     }
-    .chatCard{
-        padding: 11px 18px;
+    div {
+      position: absolute;
+      border-radius: 50%;
+      bottom: 5px;
+      right: 0px;
+      z-index: 9999;
+      width: 10px;
+      height: 10px;
+      background-color: red;
     }
-    .chatCardImage{
-        width: max-content;
-        position: relative;
-        img{
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-        }
-        div{
-            position: absolute;
-            border-radius: 50%;
-            bottom: 5px;
-            right: 0px;
-            z-index: 9999;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-        }
+  }
+  .chatCardDetails {
+    .name {
+      color: #5e5873;
+      font-size: 15px;
     }
+    .msgPreview {
+      color: #b9b9c3;
+      font-size: 14px;
+    }
+  }
+  .lastDate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    position: absolute;
+    right: 20px;
+    .date{
+        font-size: 14px;
+        color: #b9b9c3;
+    }
+    .newMessagesCount{
+        width: 20px;
+        height: 20px;
+        background: #7367f0;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        color:#fff;
+        font-size: 11.4px;
+    }
+  }
 }

@@ -38,6 +38,8 @@ const ContactList = () => {
       <div className={styles.contactListBody}>
         <h3>Chats</h3>
         <ContactChat />
+        <ContactChat />
+        <ContactChat />
       </div>
     </div>
   );

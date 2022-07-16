@@ -13,6 +13,10 @@ const ContactChat = () => {
             <p className={styles.name}>Felecia Rower</p>
             <p className={styles.msgPreview}>I will purchase it for sure.</p>
         </div>
+        <div className={styles.lastDate}>
+          <span  className={styles.date}>Jul 15</span>
+          <div className={styles.newMessagesCount}>10</div>
+        </div>
         <div></div>
     </div>
   )
