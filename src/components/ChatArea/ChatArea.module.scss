@@ -8,6 +8,13 @@
 .startChat{
     padding: 50px 0;
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width:678px) {
+        display: none;
+    }
     &Image{
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         background-color: #fff;
@@ -23,6 +30,7 @@
             width: 100px;
         }
     }
+
     .startConversation{
         // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         width: max-content;

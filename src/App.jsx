@@ -42,7 +42,7 @@ const App = () => {
           <ContactList />
         </div>
       </aside>
-      <div>
+      <div className="chat-area">
         <ChatArea />
       </div>
     </main>

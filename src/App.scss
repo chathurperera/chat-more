@@ -11,6 +11,14 @@ main {
   display: grid;
   grid-template-columns: 4fr 8fr;
 }
+@media (max-width:678px) {
+  .chat-area{
+    display: none;
+  }
+  main{
+    grid-template-columns: 1fr;
+  }
+}
 aside {
   position: relative;
   .sidebar-container {
