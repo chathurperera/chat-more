@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "../src/App.scss";
 import userProfile from "../src/assets/images/userProfile.jpg";
+import demoPP4 from "../src/assets/images/demoPP4.png";
+import demoPP3 from "../src/assets/images/demoPP3.png";
+import demoPP2 from "../src/assets/images/demoPP2.png";
 import ChatArea from "./components/ChatArea/ChatArea";
 import ChatsList from "./components/ChatsList/ChatsList";
 import ContactList from "./components/ContactList/ContactList";
 import styles from "../src/components/ContactList/ContactList.module.scss";
 
 const App = () => {
+  const [selectedChat, setSelectedChat] = useState({});
+  const [contacts, setContacts] = useState([
+    {
+      name: "Felecia Rower",
+      imageURL: userProfile,
+      bio: "Hi there, im using Chatmore 😉🤞",
+    },
+    {
+      name: "Joaquina Weisenborn",
+      imageURL: demoPP2,
+      bio: "Hi there, im using Chatmore 😉🤞",
+    },
+    {
+      name: "Verla Morgano",
+      imageURL: demoPP3,
+      bio: "Hi there, im using Chatmore 😉🤞",
+    },
+    {
+      name: "Sal Piggee",
+      imageURL: demoPP4,
+      bio: "Hi there, im using Chatmore 😉🤞",
+    },
+  ]);
   return (
     <main>
       <aside>
@@ -38,12 +64,12 @@ const App = () => {
           </div>
         </div>
         <div className="sidebar-container">
-          <ChatsList />
-          <ContactList />
+          <ChatsList setSelectedChat={setSelectedChat} />
+          <ContactList contacts={contacts} setSelectedChat={setSelectedChat} />
         </div>
       </aside>
       <div className="chat-area">
-        <ChatArea />
+        <ChatArea selectedChat={selectedChat} />
       </div>
     </main>
   );
