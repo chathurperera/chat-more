@@ -10,3 +10,10 @@ main{
   grid-template-columns: 4fr 8fr;
 
 }
+aside{
+  position: relative;
+  .sidebar-container{
+    overflow-y: scroll;
+
+  }
+}

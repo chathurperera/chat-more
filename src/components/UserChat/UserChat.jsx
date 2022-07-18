@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "../ContactList/ContactList.module.scss";
 import userProfile from "../../assets/images/userProfile.jpg";
 
-const ContactChat = () => {
+const UserChat = () => {
   return (
     <div className={styles.chatCard}>
         <div className={styles.chatCardImage}>
@@ -22,4 +22,4 @@ const ContactChat = () => {
   )
 }
 
-export default ContactChat
+export default UserChat
