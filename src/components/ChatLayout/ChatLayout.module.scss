@@ -3,6 +3,8 @@
         background-color: #fff;
         padding: 0 14px;
         height: 75px;
+        display: flex;
+        justify-content: space-between;
     }
     .profileImage{
         padding: 15px 0;
@@ -17,7 +19,6 @@
             border-radius: 50%;
             background: red;
             position: absolute;
-            // bottom: 0;
             left: 32px;
             bottom: 15px;
             display: block;
@@ -33,5 +34,46 @@
             height: 45px;
             border-radius: 50%;
         }
+    }
+    .icons{
+        display: flex;
+        gap: 15px;
+        align-items: center;
+
+        img{
+            cursor: pointer;
+            width: 18px;
+        }
+    }
+    .messagingArea{
+        border-left: 1px solid #ebe9f1;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        padding: 10px;
+        margin-left: -10px;
+        background-color: #fff;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    input{
+        padding: 0.438rem 1rem;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #d8d6de;
+        border-radius: 0.357rem;
+        width: 100%;
+        &:focus{
+            border-color: #7367f0;
+            box-shadow: none;
+            outline: none;
+        }
+        // w
+    }
+    .chatWindow{
+        height: calc(100% - 75px) ;
     }
 }

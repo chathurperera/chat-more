@@ -22,6 +22,7 @@ main {
 aside {
   position: relative;
   .sidebar-container {
+    border-right: 1px solid #ebe9f1;
     overflow-y: scroll;
     height: calc(100vh - 75px) ;
     /* width */
