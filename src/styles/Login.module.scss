@@ -2,13 +2,18 @@
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  @media (max-width:900px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .loginLeft {
   height: 100%;
   display: grid;
   place-items: center;
-  border: 1px solid black;
+  @media (max-width:478px) {
+    padding: 0 20px;
+  }
 
   &Wrapper {
     width: 100%;
@@ -97,11 +102,27 @@
       cursor: pointer;
       background-color: #3069fe;
       border: none;
-      margin-top: 50px;
-      transition: all ease .2s;
-      &:hover{
+      margin-top: 35px;
+      transition: all ease 0.2s;
+      &:hover {
         background-color: #1c58f1;
       }
     }
   }
+}
+.loginRight{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    img{
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    @media (max-width:900px) {
+       display: none;
+      }
 }

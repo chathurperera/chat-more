@@ -1,5 +1,6 @@
 import React from "react";
 import googleIcon from "../assets/images/google.png";
+import texting from "../assets/images/Texting.png";
 import styles from "../styles/Login.module.scss";
 const Login = () => {
   return (
@@ -38,7 +39,9 @@ const Login = () => {
           </form>
         </div>
       </div>
-      <div className={styles.loginRight}></div>
+      <div className={styles.loginRight}>
+        <img src={texting} alt="texting image" />
+      </div>
     </main>
   );
 };
