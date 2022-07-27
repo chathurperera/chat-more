@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 
 const Chats = () => {
   const user = auth.currentUser;
+  console.log('user',user);
   const [showAddUser, setShowAddUser] = useState(false);
   const [showLogOutBox, setShowLogOutBox] = useState(false);
   const [selectedChat, setSelectedChat] = useState({});
