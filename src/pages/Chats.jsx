@@ -4,12 +4,15 @@ import userProfile from "../assets/images/userProfile.jpg";
 import demoPP4 from "../assets/images/demoPP4.png";
 import demoPP3 from "../assets/images/demoPP3.png";
 import demoPP2 from "../assets/images/demoPP2.png";
+import addNewUser from "../assets/images/addNewUser.png";
 import ChatArea from "../components/ChatArea/ChatArea";
 import ChatsList from "../components/ChatsList/ChatsList";
 import ContactList from "../components/ContactList/ContactList";
 import styles from "../components/ContactList/ContactList.module.scss";
+import AddContact from "../components/AddContact/AddContact";
 
 const Chats = () => {
+  const [showAddUser, setShowAddUser] = useState(false);
   const [selectedChat, setSelectedChat] = useState({});
   const [contacts, setContacts] = useState([
     {
@@ -33,6 +36,7 @@ const Chats = () => {
       bio: "Hi there, im using Chatmore 😉🤞",
     },
   ]);
+
   return (
     <main>
       <aside>
@@ -62,8 +66,15 @@ const Chats = () => {
               className={styles.searchInput}
             />
           </div>
+          <img
+            className={styles.addContact}
+            onClick={() => setShowAddUser((prevState) => !prevState)}
+            src={addNewUser}
+            alt="add new user"
+          />
         </div>
         <div className="sidebar-container">
+          {showAddUser && <AddContact />}
           <ChatsList setSelectedChat={setSelectedChat} />
           <ContactList contacts={contacts} setSelectedChat={setSelectedChat} />
         </div>
