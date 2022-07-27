@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase-config.js";
 import { useNavigate, Link } from "react-router-dom";
+import Spinner from "../components/Spinner/Spinner";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -22,6 +23,12 @@ const Login = () => {
     signInWithPopup(auth, provider).then((result) => {
       navigate("/chats");
     });
+  };
+
+  const login = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
   };
   return (
     <main className={styles.login}>
@@ -71,7 +78,12 @@ const Login = () => {
               />
               Remember information
             </label>
-            <button className={styles.loginButton}>Login</button>
+            <button className={styles.loginButton}>
+              {loading ? <Spinner /> : "Login"}
+            </button>
+            <p className={styles.redirect}>
+              New to ChatMore ? <Link to="/signUp">Sign up</Link>{" "}
+            </p>
           </form>
         </div>
       </div>
