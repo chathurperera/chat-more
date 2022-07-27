@@ -4,15 +4,22 @@ import userProfile from "../assets/images/userProfile.jpg";
 import demoPP4 from "../assets/images/demoPP4.png";
 import demoPP3 from "../assets/images/demoPP3.png";
 import demoPP2 from "../assets/images/demoPP2.png";
+import powerOff from "../assets/images/power-off.png";
 import addNewUser from "../assets/images/addNewUser.png";
 import ChatArea from "../components/ChatArea/ChatArea";
 import ChatsList from "../components/ChatsList/ChatsList";
 import ContactList from "../components/ContactList/ContactList";
 import styles from "../components/ContactList/ContactList.module.scss";
 import AddContact from "../components/AddContact/AddContact";
+import { db, auth } from "../../firebase-config";
+import { signOut } from "firebase/auth";
+import { doc, setDoc, collection, query, where } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const Chats = () => {
+  const user = auth.currentUser;
   const [showAddUser, setShowAddUser] = useState(false);
+  const [showLogOutBox, setShowLogOutBox] = useState(false);
   const [selectedChat, setSelectedChat] = useState({});
   const [contacts, setContacts] = useState([
     {
@@ -37,13 +44,46 @@ const Chats = () => {
     },
   ]);
 
+  const navigate = useNavigate();
+
+  const addContact = async (newContactEmail) => {
+    if (newContactEmail === "") {
+      console.log("is empty");
+      return;
+    }
+    await setDoc(doc(db, "chats", newContactEmail), {
+      users: [user.email, newContactEmail],
+    }).then((res) => {
+      console.log("new contact created Chats");
+    });
+  };
+
+  const logout = () => {
+    setShowLogOutBox(false);
+    signOut(auth);
+    navigate("/login");
+  };
+
   return (
     <main>
       <aside>
         <div className={styles.contactListHeader}>
           <div className={styles.userImage}>
-            <img src={userProfile} alt="user profile" />
+            <img
+              className={styles.pp}
+              src={userProfile}
+              alt="user profile"
+              onClick={() => setShowLogOutBox((prevState) => !prevState)}
+            />
             <div></div>
+            {showLogOutBox && (
+              <div className={styles.logOut}>
+                <p onClick={logout}>
+                  <img src={powerOff} alt="log out" />
+                  Sign out
+                </p>
+              </div>
+            )}
           </div>
           <div className={styles.search}>
             <svg
@@ -54,8 +94,8 @@ const Chats = () => {
               fill="none"
               stroke="#b9b9c3"
               strokeWidth="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -74,7 +114,7 @@ const Chats = () => {
           />
         </div>
         <div className="sidebar-container">
-          {showAddUser && <AddContact />}
+          {showAddUser && <AddContact addContact={addContact} />}
           <ChatsList setSelectedChat={setSelectedChat} />
           <ContactList contacts={contacts} setSelectedChat={setSelectedChat} />
         </div>
