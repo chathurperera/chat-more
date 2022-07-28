@@ -6,17 +6,10 @@ import SignUp from "./pages/SignUp";
 import { auth } from "../firebase-config";
 import { useNavigate } from "react-router-dom";
 import ProtectedRoute from "./pages/ProtectedRoute";
-const navigate = useNavigate();
-const user = auth.currentUser;
+
 
 const App = () => {
-  useEffect(() => {
-    if (!user) {
-      navigate("/login");
-    } else {
-      navigate("/chats");
-    }
-  }, []);
+  const user = auth.currentUser;
   return (
     <div>
       <BrowserRouter>
